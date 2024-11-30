@@ -1,49 +1,76 @@
 function getHistory() {
-    return document.getElementById("history-value").innerText;//get history
+
+    return document.getElementById("history-value").innerText;//get history 8*
+
 }
 
 function printHistory(num) {
-    return document.getElementById("history-value").innerHTML = num; // display hist
+
+    document.getElementById("history-value").innerText = num;//display hist
+
 }
 
 function getOutput() {
-    return document.getElementById("output-value").innerHTML; // get output
+
+    return document.getElementById("output-value").innerText;//get output 9
+
 }
 
 function printOutput(num) {
+
     if (num == "") {
-        document.getElementById("output-value").innerHTML = num;
+
+        document.getElementById("output-value").innerText = num;
+
     }
 
     else {
-        document.getElementById("output-value").innerHTML = getFormattedNumber(num);
+
+        document.getElementById("output-value").innerText = getFormattedNumber(num);
+
     }
+
 }
 
 function getFormattedNumber(num) {
+
     if (num == "-") {
-        return ""
+
+        return "";
+
     }
+
     var n = Number(num);//"99"->9999
-    var value = n.toLocaleString("en");//9,999
+
+    var value = n.toLocaleString("en");//9999->9,999
+
     return value;
+
 }
 
 function reverseNumberFormat(num) {
-    returnNumber(num.replace(/,/g / ''));//9,999->999
+
+    return Number(num.replace(/,/g, ''));//9,999->9999
+
 }
 
 var operator = document.getElementsByClassName("operator");
+
 for (var i = 0; i < operator.length; i++) {
+
     operator[i].addEventListener('click', function () {
+
         if (this.id == "clear") {
+
             printHistory("");
+
             printOutput("");
+
         }
 
         else if (this.id == "backspace") {
 
-            var output = reverseNumberFormat(getOutput()).toString();//, removed
+            var output = reverseNumberFormat(getOutput()).toString();//, removed =>"9999"
 
             if (output) {//if output has a value
 
@@ -57,9 +84,9 @@ for (var i = 0; i < operator.length; i++) {
 
         else {
 
-            var output = getOutput();
+            var output = getOutput();//2
 
-            var history = getHistory();
+            var history = getHistory();//98*
 
             if (output == "" && history != "") {
 
